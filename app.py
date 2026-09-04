@@ -1,13 +1,15 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from urllib.parse import parse_qs
+import os
+import os
 import psycopg
 
 
 DB_CONFIG = {
-    "host": "db",
-    "dbname": "notesdb",
-    "user": "notesuser",
-    "password": "secret",
+    "host": os.getenv("DB_HOST", "db"),
+    "dbname": os.getenv("DB_NAME", "notesdb"),
+    "user": os.getenv("DB_USER", "notesuser"),
+    "password": os.getenv("DB_PASSWORD"),
 }
 
 
